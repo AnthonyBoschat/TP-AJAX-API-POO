@@ -27,9 +27,11 @@ header{
         }
 
         input, textarea{
-            background-color: rgba(99, 121, 99, 0.068);
+            background-color: rgba(99, 121, 99, 0.129);
             padding: 0.5rem;
             letter-spacing: 1px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.123);
+
         }
         >div{
             display: flex;
@@ -79,6 +81,13 @@ main{
         gap: 1.5rem;
 
         li {
+            transition: all 0.1s linear;
+            &:hover{
+                cursor: pointer;
+                transform: scale(1.01);
+                box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.371);
+
+            }
             display: flex;
             flex-direction: column;
             /* gap: 1rem; */
