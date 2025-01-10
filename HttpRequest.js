@@ -38,11 +38,19 @@ class HttpRequest{
                     }
                 }
             }
-            const response = await fetch(url, detail)
-            const data = await response.json()
-            return {
-                success:true,
-                data:data
+            try{
+                const response = await fetch(url, detail)
+                if(response.ok){
+                    const data = await response.json()
+                    return {
+                        success:true,
+                        data:data
+                    }
+                }else{
+                    throw new Error(`Une erreur inconnue est survenu ${response.status ? `- code ${response.status}` : ""}`)
+                }
+            }catch(error){
+                return this.#error(error)
             }
         }
     }
