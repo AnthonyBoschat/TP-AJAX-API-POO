@@ -10,6 +10,42 @@ body{
     height: 100vh;
     width: 100vw;
     background-color: rgb(229, 229, 229);
+    overflow: hidden;
+}
+
+.popup{
+    font-family: monospace;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.251);
+    background-color: rgb(247, 247, 247);
+
+    transition: all 0.2s linear;
+    transform: translate(-50%, 100%);
+    /* transform: translate(-50%, -150%); */
+
+    &.error{
+        background-color: rgba(255, 0, 0, 0.068);
+    }
+
+    &.success{
+        background-color: rgba(0, 255, 51, 0.068);
+
+    }
+    
+    &.on{
+        transform: translate(-50%, -150%);
+    }
+
+    &.opacityOut{
+        opacity: 0;
+    }
+
 }
 
 header{
