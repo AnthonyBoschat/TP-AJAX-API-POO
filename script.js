@@ -3,7 +3,6 @@ const list = document.querySelector("#list")
 const memberIDs = ["1", "2", "3", "4", "5"]
 
 const constructLI = (member) => {
-    console.log(member)
     const newLiElement = document.createElement("li")
 
     const headerDiv = document.createElement("div")
