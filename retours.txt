@@ -1,0 +1,36 @@
+Pas de souci pour ton code
+Pour aller plus loin, tu passes method = GET par défaut dans call, mais ce n'est pas utilisé et detail est défini à null
+On pourrait définir detail = {
+    method,
+    headers: {
+        Accept: "application/json"
+    }
+}
+Comme ça par défaut on a tout pour un GET et si c'est POST derrière on rédéfini comme tu l'as fait
+
+La popup vient jouer sur les class CSS plutôt que de venir changer les styles directement, c'est parfait
+
+Dans HTTPRequest tu as :
+if(response.ok){
+                    const data = await response.json()
+                    return {
+                        success:true,
+                        data:data
+                    }
+                }else{
+                    throw new Error(`Une erreur inconnue est survenu ${response.status ? `- code ${response.status}` : ""}`)
+                }
+
+Je privilégierais l'approche inverse, on traite d'abord les erreurs et après on traite le cas ou pas d'erreurs. C'est plus lisible
+ et on s'évite un else :
+  if(!response.ok){
+                    throw new Error(`Une erreur inconnue est survenu ${response.status ? `- code ${response.status}` : ""}`)
+                }
+                const data = await response.json()
+                return {
+                    success:true,
+                    data:data
+                }
+
+
+Sinon, gestion des erreurs, utilisation des constantes, petite pop up qui va bien, c'est tout bon
